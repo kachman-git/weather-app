@@ -19,12 +19,14 @@ const Navbar = () => {
   async function weatherFecth() {
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&units=metric`
       );
       if (!res.ok) {
         setError("There was an error ");
       }
       const data: WeatherData = await res.json();
+      console.log(data);
+
       setWeatherData(data);
       setError("");
       setIsLoading(false);
@@ -66,9 +68,7 @@ const Navbar = () => {
           Search
         </button>
       </form>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
+      {!isLoading && (
         <div className="flex flex-col mt-3 justify-center items-start lg:items-center">
           <Display weatherData={weatherData} />
         </div>
