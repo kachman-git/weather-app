@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  input {
+    @apply bg-transparent border border-b-2 rounded border-transparent w-full text-center p-4 md:w-1/2 2xl:w-3/12 placeholder:text-white text-white outline-none border-b-orange-500;
+  }
+}
