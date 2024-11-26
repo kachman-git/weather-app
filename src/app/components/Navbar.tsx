@@ -14,7 +14,7 @@ const Navbar = () => {
     if (country.length === 0 || city.length === 0) {
       return setError("Please Fill All Filled");
     }
-  }, []);
+  }, [country, city]);
 
   async function weatherFecth() {
     try {
